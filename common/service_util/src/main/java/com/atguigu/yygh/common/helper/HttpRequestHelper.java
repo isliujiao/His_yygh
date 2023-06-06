@@ -38,9 +38,6 @@ public class HttpRequestHelper {
 
     /**
      * 请求数据获取签名
-     * @param paramMap
-     * @param signKey
-     * @return
      */
     public static String getSign(Map<String, Object> paramMap, String signKey) {
         if(paramMap.containsKey("sign")) {

@@ -165,14 +165,14 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderInfo> implem
             orderMqVo.setMsmVo(msmVo);
             System.out.println("param：" + param);
             //发送短信
-            rabbitService.sendMessage(MqConst.EXCHANGE_DIRECT_ORDER, MqConst.ROUTING_ORDER, orderMqVo);
+//            rabbitService.sendMessage(MqConst.EXCHANGE_DIRECT_ORDER, MqConst.ROUTING_ORDER, orderMqVo);
         } else {
             throw new YyghException(result.getString("message"), ResultCodeEnum.FAIL.getCode());
         }
         return orderInfo.getId();
     }
 
-    //根据订单di查询订单详情
+    //根据订单id查询订单详情
     @Override
     public OrderInfo getOrder(String orderId) {
         OrderInfo orderInfo = baseMapper.selectById(orderId);
@@ -237,9 +237,9 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, OrderInfo> implem
 
         //判断是否可以取消
         DateTime quitTime = new DateTime(orderInfo.getQuitTime());
-        if (quitTime.isBeforeNow()) {
-            throw new YyghException(ResultCodeEnum.CANCEL_ORDER_NO);
-        }
+//        if (quitTime.isBeforeNow()) {
+//            throw new YyghException(ResultCodeEnum.CANCEL_ORDER_NO);
+//        }
         //调用医院接口实现预约取消
         SignInfoVo signInfoVo = hospitalFeignClient.getSignInfoVo(orderInfo.getHoscode());
         if (null == signInfoVo) {

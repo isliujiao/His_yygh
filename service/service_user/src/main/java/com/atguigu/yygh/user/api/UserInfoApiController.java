@@ -39,6 +39,7 @@ public class UserInfoApiController {
     @PostMapping("login/email")
     public Result emailLogin(@RequestBody LoginVo loginVo) {
         Map<String, Object> info = userInfoService.emailLoginUser(loginVo);
+        System.out.println("loginVo: " + loginVo);
         return Result.ok(info);
     }
 

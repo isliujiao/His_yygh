@@ -74,8 +74,8 @@ public class MsmApiController {
 
         //2.如果从redis获取不到，生成验证码，
         code = RandomUtil.getSixBitRandom();
-        log.info(code);
-        msmService.sendEmail(email,code);
+        System.out.println("========= 生成验证码：=============" + code);
+//        msmService.sendEmail(email,code); //发送邮箱验证码
         redisTemplate.opsForValue().set(email,code,5*60*5*30,TimeUnit.MINUTES);
         return Result.ok();
     }
