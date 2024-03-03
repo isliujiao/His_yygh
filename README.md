@@ -1,3 +1,18 @@
+# His_yygh
+
+#### 介绍
+
+我所参与的预约挂号项目是一个医疗健康类的应用，主要实现了在线预约挂号、医生排班、医生问诊、在线咨询等功能。
+#### 技术栈：
+
+- 前端：使用 Vue.js、Element UI、Axios 等技术实现。
+- 后端：使用 Spring Boot、MyBatis、SpringCloud等技术实现。
+- 数据库：使用 MySQL 数据库存储数据和MongoDB。
+- 消息队列：使用 RabbitMQ 实现异步消息处理，提高系统吞吐量。
+
+在项目实现过程中，我们采用前后端分离的方式，前端与后端通过 RESTful API 进行据交互。同时，我们也采用 GitLab 进行版本控制和持续集成，通过自动化测试和部署，保证代码质量和系统稳定性。、
+
+#### 启动说明
 - nacos `win`
 - mysql 
 - redis `linux`
